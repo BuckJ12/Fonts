@@ -10,8 +10,6 @@ public class FontViewer {
     private static JLabel label = new JLabel();
     private static JPanel panel = new JPanel();
     private static JTextArea outputTextArea;
-    private static ActionListener prev;
-    private static ActionListener next;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -20,20 +18,20 @@ public class FontViewer {
             frame.setLayout(new BorderLayout());
 
             JButton nextButton = new JButton("Next Font");
-            nextButton.addActionListener(next =new ActionListener() {
+            nextButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                	changeFont(1);
+                	changeFont(-1);
                 }
             });
             
             
 
             JButton prevButton = new JButton("Previous Font");
-            prevButton.addActionListener(prev = new ActionListener() {
+            prevButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    changeFont(-1);
+                    changeFont(1);
                 }
             });
             outputTextArea = new JTextArea();
